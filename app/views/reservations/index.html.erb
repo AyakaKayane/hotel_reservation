@@ -1,0 +1,35 @@
+<div class="container-fiuld room-posts">
+  <h2 class="pb-4">予約済みルーム一覧</h2>
+  <table>
+    <thead>
+      <tr align="center">
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>合計料金</th>
+        <th>開始日</th>
+        <th>終了日</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <%#@reservationsは複数の行、その一つ一つ(each)が |reservation|%>
+        <% @room = Room.find(reservation.room_id) %>
+        <%#複数の行で検索をかけると「どの行のroom_idを使うの？」とシステム側が判断できない、一つの行（|reservation|）にしたあとは、room_idは一つなので検索できる。%>
+          <tr>
+            <% if File.exist?("app/assets/images/room/#{reservation.room_id}.jpg") %>
+              <td><%= image_tag "room/#{reservation.room_id}", class:"room-posts-image" %></td>
+            <% else %>
+              <td><%= image_tag "no_image.png", class:"room-posts-image" %></td>
+            <% end %>
+            <td class="posts-name"><%= link_to("#{@room.room_name}", "/rooms/show/#{reservation.room_id}") %></td>
+            <td><%= @room.room_introduction %></td>
+            <td><%= reservation.total_amount %></td>
+            <td><%= reservation.start %></td>
+            <td><%= reservation.finish %></td>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

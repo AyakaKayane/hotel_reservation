@@ -1,0 +1,30 @@
+<div class="container-fiuld room-posts">
+  <h2 class="pb-4">登録済みルーム一覧</h2>
+  <table>
+    <thead>
+      <tr align="center">
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <% @rooms.each do |room| %>
+          <tr>
+            <% if File.exist?("app/assets/images/room/#{room.id}.jpg") %>
+              <td><%= image_tag "room/#{room.id}", class:"room-posts-image" %></td>
+            <% else %>
+              <td><%= image_tag "no_image.png", class:"room-posts-image" %></td>
+            <% end %>
+            <td class="posts-name"><%= link_to("#{room.room_name}", "/rooms/#{room.id}") %></td>
+            <td><%= room.room_introduction %></td>
+            <td><%= room.cost %></td>
+            <td><%= room.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

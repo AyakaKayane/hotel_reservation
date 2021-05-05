@@ -1,0 +1,34 @@
+<div class="login">
+    <h3>ルーム情報登録</h3>
+
+    <%= form_tag("/rooms/create", {multipart: true})do %>
+      <table class="mannaka">
+        <tr>
+          <th><span class="must">必須</span><%= "ルーム名" %></th>
+          <td><input name="room_name" value="<%= @room.room_name %>"></td>
+        </tr>
+        <tr>
+          <th><span class="must">必須</span><%= "ルーム紹介" %></th>
+          <td><input name="room_introduction" value="<%= @room.room_introduction %>"></td>
+        </tr>
+        <tr>
+          <th><span class="must">必須</span><%= "料金" %></th>
+          <td><input type="number" name="cost" value="<%= @room.cost %>"></td>
+        </tr>
+        <tr>
+          <th><span class="must">必須</span><%= "住所" %></th>
+          <td><input name="address" value="<%= @room.address %>"></td>
+        </tr>
+        <tr>
+          <th><span class="must">必須</span><%= "ルーム画像" %></th>
+          <td><input name="image_room" type="file"></td>
+        </tr>
+      </table>
+ 
+      <div>
+        <ul >
+          <input class="btn btn-primary" type="submit" value="登録" >
+        </ul>
+      </div>
+    <% end %>
+</div>

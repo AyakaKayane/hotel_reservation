@@ -1,0 +1,28 @@
+<div class="login">
+  <h3>ユーザー情報詳細</h3>
+
+    <%= flash[:notice] %>
+      <table class="mannaka">
+        <tr>
+          <th><%= "名前" %></th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th><%= "メールアドレス" %></th>
+          <td><%= @user.mail %></td>
+        </tr>
+        <tr>
+          <th><%= "パスワード" %></th>
+          <td><%= @user.password %></td>
+        </tr>
+        <tr>
+          <th><%= "自己紹介" %></th>
+          <td><%= @user.profile %></td>
+        </tr>
+        <tr>
+          <th><%= "アイコン" %></th>
+          <td><%= image_tag "#{@user.image_name}", class: "host-icon" %></td>
+        </tr>
+      </table>
+    <%= link_to("編集", "/users/#{@user.id}/edit") %>
+</div>

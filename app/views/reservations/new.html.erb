@@ -1,0 +1,38 @@
+<div class="container reservations-new">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="reservations-new-nav">
+
+                <h4 class="reservations-new-check-content">予約内容確認</h4>
+                  <h5 class="price-icon"><%= @reservation.cost %> / 日</h5>
+                    <div class="reservations-new-date-select">
+
+                        <label for="start">開始日</label>
+                        <input class="form-control mb-4" readonly="readonly" type="text" value="<%= @reservation.start %>" name="start">
+
+                        <label for="finish">終了日</label>
+                        <input class="form-control mb-4" readonly="readonly" type="text" value="<%= @reservation.finish %>" name="finish">
+
+                        <h6 class="reservations-new-check-content">使用日数<%= total_date= (@reservation.finish - @reservation.start).to_i %> 日</h6>
+
+                        <h6 class="reservations-new-check-content">人数 : <%= @reservation.count %></h6>
+
+                        <label for="total_amount">合計金額</label>
+                        <input class="form-control mb-4" readonly="readonly" type="text" value="<%= total_amount = @reservation.cost * total_date * @reservation.count %>" name="total_amount">
+                        <p class="reservations-new-check-content">上記内容でよろしければ「予約を確定」を押してください</p>
+                        <a class="btn btn-secondary form-control" href="/rooms/show/">ルーム詳細に戻る</a>
+                    </div>
+              
+                    <%= form_tag(controller: "reservations", action: "create") do %>
+                        <input type="hidden" name="cost" id="cost" value="<%= @reservation.cost %>">
+                        <input type="hidden" name="start" id="start" value="<%= @reservation.start %>">
+                        <input type="hidden" name="finish" id="finish" value="<%= @reservation.finish %>">
+                        <input type="hidden" name="count" id="count" value="<%= @reservation.count %>">
+                        <input type="hidden" name="total_amount" id="total_amount" value="<%= total_amount %>">
+                        <input type="hidden" name="room_id" id="room_id" value="<%= @reservation.room_id %>">
+                        <input type="submit" name="commit" value="予約を確定" class="btn btn-primary form-control my-3" data-disable-with="予約を確定">
+                    <% end %>
+            </div>
+        </div>
+    </div>
+</div>

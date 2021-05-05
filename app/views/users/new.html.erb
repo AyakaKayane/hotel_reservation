@@ -1,0 +1,33 @@
+<div class="login">
+    <h3>新しいアカウントを作成</h3>
+ 
+    <% @user.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <%= message %>
+      </div>
+    <% end %>
+
+    <%= form_tag("/users/create")do %>
+      <table class="mannaka">
+        <tr>
+          <th><span class="must">必須</span><%= "名前" %></th>
+          <td><input name="name" value="<%= @user.name %>"></td>
+        </tr>
+
+        <tr>
+          <th><span class="must">必須</span><%= "メールアドレス" %></th>
+          <td><input name="mail" value="<%= @user.mail %>"></td>
+        </tr>
+        <tr>
+          <th><span class="must">必須</span><%= "パスワード" %></th>
+          <td><input name="password" value="<%= @user.password %>"></td>
+        </tr>
+      </table>
+ 
+      <div>
+        <ul >
+          <input class="btn btn-primary" type="submit" value="新規登録" >
+        </ul>
+      </div>
+    <% end %>
+</div>

@@ -1,0 +1,42 @@
+<div class="login">
+    <table class="mannaka">
+      <tr>
+        <!--部屋画像-->
+        <td><%= image_tag "room/#{@room.id}", width: '700px', height: '400px' %></td>
+      </tr>
+      <tr>
+        <!--ルーム名-->
+        <td><%= @room.room_name %></td>
+      </tr>
+      <tr>
+        <!--住所-->
+        <td><%= @room.address %></td>
+      </tr>
+      <tr>
+        <!--ルーム紹介-->
+        <td><%= @room.room_introduction %></td>
+      </tr>
+    </table>
+    
+    <div class="room-show-nav">
+      <%= form_tag(controller: "reservations", action: "new") do %>
+
+        <h5 class="price-icon"><%= @room.cost %> / 日</h5>
+        <input type="hidden" name="cost" id="cost" value="<%= @room.cost %>">
+
+          <div class="room-show-date-select">
+              <label for="start">開始日</label>
+              <input type="date" name="start" class="form-control mb-4">
+
+              <label for="finish">終了日</label>
+              <input type="date" name="finish" class="form-control mb-4">
+
+              <label for="count">人数</label>
+              <input type="number" name="count" class="form-control mb-4">
+              <input type="hidden" name="room_id" id="room_id" value="<%= @room.id %>">
+              
+              <input type="submit" value="予約する" class="btn btn-primary form-control" data-disable-with="予約する">
+          </div>
+      <% end %>
+    </div>
+</div>
