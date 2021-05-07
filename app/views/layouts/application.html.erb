@@ -11,6 +11,46 @@
   </head>
 
   <body>
+    <header class="header">
+      <a href="http://localhost:3000"><img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"></a>
+        <div class="header-left-nav">
+
+          <%= form_tag({controller: :travel, action: :search}, { method: :get})do %>
+            <tr>
+              <%= text_field_tag :search, placeholder="エリア"%>
+               <%= submit_tag 'Search', {class: "tg"}%>
+            </tr>
+          <% end %>
+          <%= form_tag({controller: :travel, action: :keyword}, { method: :get})do %>
+            <tr>
+              <%= text_field_tag :search, placeholder="キーワード"%>
+              <%= submit_tag 'Search', {class: "tg"}%>
+            </tr>
+          <% end %>
+
+        </div>
+        <div class="header-right-nav">
+          <% if logged_in? %>
+            <%= current_user.name %>
+              <td><%= image_tag "#{current_user.image_name}", class: "host-icon" %></td>
+              <ul class="nav">
+                <li><a href="http://localhost:3000/rooms/new">ルーム登録</a></li>
+                <li><a href="http://localhost:3000/reservations/index">予約済みルーム一覧</a></li>
+                <li><a href="http://localhost:3000/rooms/index">登録済みルーム一覧</a></li>
+                <li><%= link_to("編集", "/users/#{current_user.id}") %></li>
+                <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+              </ul>
+          <% else %>
+            <a class="btn btn-primary my-2 mx-3" href="http://localhost:3000/sessions/new">ログイン</a>
+            <a class="btn btn-secondary" href="http://localhost:3000/users/new">登録する</a>
+          <% end %>
+        </div>
+    </header>
+
     <%= yield %>
+    
+    <footer class="footer">
+      <p>©︎ 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>

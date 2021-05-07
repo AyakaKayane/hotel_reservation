@@ -1,0 +1,200 @@
+//ボディー全体
+body {
+  display: block;
+ }
+div {
+  display: block;
+}
+
+//ヘッダー
+.header {
+  width: auto;
+  height: 70px;
+  padding: 4px 30px;
+  background-color: #000000;
+  display: block;
+}
+
+//ログイン・登録する
+.btn {
+  display: inline-block;
+  color: #fff;
+}
+.header-right-nav {
+  float: right;
+  color: #fff;
+  font-size: 14px;
+  margin-top: 20px;
+}
+.header-left-nav {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.mx-3 {
+  margin-right: 1rem!important;
+}
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn-primary {
+  color: #fff;
+  text-decoration: none;
+  border-color: #007bff;
+}
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  text-decoration: none;
+}
+.host-icon {
+  width: 50px;
+  height: 50px;
+}
+.header-right-nav:hover .nav {
+  display: block;
+}
+.nav li {
+  position: relative;
+  list-style: none;
+}
+.nav li a {
+  display: block;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  color:black;
+  font-size: 14px;
+  line-height: 2.8;
+  background:white;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.nav > li:hover > a {/*layer-1*/
+  color: orange;
+}
+.nav {
+  background-color: #fff;
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  padding: 15px;
+  z-index: 1000;
+  display: none;
+}
+
+//フッター
+.footer {
+  display: block;
+  bottom: 0;
+  width: auto;
+  height: 180px;
+  margin-top: 64px;
+  padding-top: 90px;
+  background-color: #111;
+  box-sizing: border-box;
+  color: #fff;
+  text-align: center;
+}
+
+//トップ画像
+.top .top-main {
+  background-image: url(https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 650px;
+}
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.top .form-fream {
+  height: 650px;
+  display: flex;
+  align-items: center;
+  margin-left: 400px;
+}
+.top .form-area {
+  background: #fff;
+  padding: 24px;
+  border-radius: 5px;
+}
+.top .form-area-title {
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: 1px;
+}
+
+//検索ボックス上のエリア
+label {
+  display: block;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn-primary {
+  background-color: #4a90e2 !important;
+}
+.mb-4, .my-4 {
+  margin-bottom: 1.5rem!important;
+}
+.btn-primary {
+  color: #fff;
+  border-color: #007bff;
+}
+
+//おすすめエリア
+.top .section-title {
+  font-size: 24px;
+  margin: 35px 0;
+  font-weight: bold;
+}
+.m-5 {
+  margin: 3rem!important;
+}
+.panel-image {
+  width: 282px;
+height: 400px;
+}
+.top span {
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  color: rgb(172, 26, 26);
+  font-weight: bold;
+  z-index: 1;
+  margin: auto;
+  text-align: center;
+  font-size: 24px;
+}

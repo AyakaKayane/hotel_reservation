@@ -1,0 +1,25 @@
+<div class="login">
+  <div class="login-naka">
+
+    <h3>ログイン</h3>
+      <%= form_for(:session, url: login_path) do |f| %>
+        <table class="mannaka">
+          <tr>
+            <th><%= f.label :mail ,"メールアドレス"%></th>
+            <td><%= f.email_field :mail %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :password ,"パスワード"%></th>
+            <td><%= f.password_field :password %></td>
+          </tr>
+        </table>
+
+        <div>
+          <ul>
+            <%= f.submit "ログイン", class: "btn btn-primary" %>
+          </ul>
+          <p><%= link_to "新しいアカウントを作成", new_user_path %></p>
+        </div>
+      <% end %>
+  </div>
+</div>

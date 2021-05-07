@@ -1,0 +1,41 @@
+<div class="login">
+
+  <h3>ユーザー情報編集</h3>
+
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="form-error">
+      <%= message %>
+    </div>
+  <% end %>
+
+  <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+    <table class="mannaka">
+      <tr>
+        <th><%= "名前" %></th>
+        <td><input name="name" value="<%= @user.name %>"></td>
+      </tr>
+      <tr>
+        <th><%= "メールアドレス" %></th>
+        <td><input name="mail" value="<%= @user.mail %>"></td>
+      </tr>
+      <tr>
+        <th><%= "パスワード" %></th>
+        <td><input name="password" value="<%= @user.password %>"></td>
+      </tr>
+      <tr>
+        <th><%= "自己紹介" %></th>
+        <td><input name="profile" value="<%= @user.profile %>"></td>
+      </tr>
+      <tr>
+        <th><%= "アイコン画像" %></th>
+        <td><input name="image_name" type="file"></td>
+      </tr>
+    </table>
+  
+    <div>
+      <ul >
+        <input class="btn btn-primary" type="submit" value="保存">
+      </ul>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,22 @@
+<div class="room">
+  <div class="row">
+    <div class="waku">
+
+      <% @rooms.each do |t| %>
+        <div class="room-frame-inner">
+          <tr>
+            <% if File.exist?("app/assets/images/room/#{t.id}.jpg") %>
+              <td><%= image_tag "room/#{t.id}", class:"room-posts-image" %></td>
+            <% else %>
+              <td><%= image_tag "no_image.png", class:"room-posts-image" %></td>
+            <% end %>
+            <td class="posts-name"><%= link_to("#{t.room_name}", "/rooms/#{t.id}") %></td>
+            <td><%= t.address %></td>
+            <td><%= t.cost%></td>
+          </tr>
+        </div>
+      <% end %>
+      
+    </div>
+  </div>
+</div>
